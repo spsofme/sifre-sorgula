@@ -21,10 +21,10 @@ for _url in URL_LIST:
 		soup = BeautifulSoup(page.content, "html.parser")
 		results = True if str(soup).strip().find("!cetin") != -1 else False
 
-		print(results)
+		print("sifreniz bulundu, lutfen sifrenizi guncelleyin." if results else "sifreniz bulunamadi")
 		if (results): break
 	
 
 	results = True if results.find("td", string="ademelmasi") else False
-	print(results)
+	print("sifreniz bulundu, lutfen sifrenizi guncelleyin." if results else "sifreniz bulunamadi")
 	if (results): break
