@@ -19,12 +19,12 @@ for _url in URL_LIST:
 
 		page = requests.get(url=_url)
 		soup = BeautifulSoup(page.content, "html.parser")
-		results = True if str(soup).strip().find(password) != -1 else False
+		results = (str(soup).strip().find(password) != -1)
 
 		print("sifreniz bulundu, lutfen sifrenizi guncelleyin." if results else "sifreniz bulunamadi")
 		if (results): break
 	
 
-	results = True if results.find("td", string=password) else False
+	results = bool(results.find("td", string=password))
 	print("sifreniz bulundu, lutfen sifrenizi guncelleyin." if results else "sifreniz bulunamadi")
 	if (results): break
